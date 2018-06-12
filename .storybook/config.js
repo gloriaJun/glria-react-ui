@@ -1,4 +1,9 @@
-import { configure } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
+import { setDefaults } from '@storybook/addon-info';
+
+addDecorator(withKnobs)
+setDefaults()
 
 /**
  * add global
