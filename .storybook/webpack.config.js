@@ -1,34 +1,21 @@
-const path = require('path');
+const path = require("path");
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: { importLoaders: 1 },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [
-                require('autoprefixer')({
-                  browsers: ['last 1 version', 'ie >= 11'],
-                }),
-              ],
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: [path.resolve(__dirname, '../src/assets/styles', 'node_modules')],
-            },
-          },
-        ],
-      },
-    ],
-  },
+module.exports = (storybookBaseConfig, configType) => {
+  storybookBaseConfig.module.rules.push({
+    test: /\.s?css$/,
+    loaders: ["style-loader", "css-loader", "sass-loader"],
+    include: path.resolve(__dirname, "../")
+  });
+
+  storybookBaseConfig.module.rules.push({
+    test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+    loader: 'url-loader',
+    query: {
+      limit: 10000,
+      name: 'fonts/[name].[hash:7].[ext]'
+    }
+  });
+
+  // Return the altered config
+  return storybookBaseConfig;
 };
