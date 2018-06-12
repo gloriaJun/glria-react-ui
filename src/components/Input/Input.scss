@@ -1,0 +1,5 @@
+@import '~materialize-css/sass/materialize';
+
+.gl-input {
+  @extend .input-field;
+}
