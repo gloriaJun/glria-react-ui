@@ -1,8 +1,21 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
-  "plugins": ["react", "jsx-a11y", "import"],
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
   "rules": {
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}]
+  },
+  "settings": {
+    "propWrapperFunctions": ["forbidExtraProps", "exact", "Object.freeze"]
   }
 }
