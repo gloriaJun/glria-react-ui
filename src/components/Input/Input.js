@@ -1,11 +1,16 @@
-import React, { Component } from  'react'
-// import classNames from 'classnames'
-import './Input.scss'
+import React from  'react'
+import classNames from 'classnames/bind'
+import styles from './Input.scss'
+const cx = classNames.bind(styles);
 
-class Input extends Component {
-  state = {
-    value: '',
-    className: ''
+class Input extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      focus: false,
+      className: ''
+    };
   }
 
   handleFocus = (e) => {
@@ -32,7 +37,7 @@ class Input extends Component {
           onChange={this.handleChange}
         />
         <label
-          className={this.state.className}
+          className={cx({ active: true})}
         >{label}</label>
       </div>
     )
