@@ -8,7 +8,8 @@ storiesOf('Input', module)
   .add('default', () => (
     <Input
       type="text"
-      label="Name"/>
+      label="Name"
+    />
   ))
-  .add('disabled', () => <Input disabled/>)
-  .add('validation', () => <Input/>);
+  .add('disabled', () => <Input disabled />)
+  .add('validation', () => <Input />);

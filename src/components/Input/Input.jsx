@@ -1,43 +1,49 @@
-import React from  'react'
-import classNames from 'classnames/bind'
-import styles from './Input.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
+import styles from './Input.scss';
+
 const cx = classNames.bind(styles);
+
+const propTypes = {
+  type: PropTypes.string,
+  label: PropTypes.string,
+};
+
+const defaultProps = {
+  type: 'text',
+  label: '',
+};
 
 export default class Input extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: '',
-      focus: false
+      focus: false,
     };
   }
 
-  handleFocus = (e) => {
-    this.setState({
-      focus: true
-    });
+  handleFocus = () => {
+    this.setState({ focus: true });
   }
 
-  handleBlur = (e) => {
-    this.setState({
-      focus: false
-    });
+  handleBlur = () => {
+    this.setState({ focus: false });
   }
 
   handleChange = (e) => {
-    this.setState({
-      value: e.target.value
-    });
+    this.setState({ value: e.target.value });
   }
 
-  render () {
+  render() {
     const {
       type,
-      label
+      label,
     } = this.props;
     const {
       value,
-      focus
+      focus,
     } = this.state;
 
     return (
@@ -50,11 +56,16 @@ export default class Input extends React.Component {
           onChange={this.handleChange}
         />
         <label
+          htmlFor="{}"
           className={cx({
-            active: (value === '' &&  focus || value !== '')
+            active: (value === '' && focus) || value !== '',
           })}
-        >{label}</label>
+        >{label}
+        </label>
       </div>
-    )
+    );
   }
 }
+
+Input.propTypes = propTypes;
+Input.defaultProps = defaultProps;

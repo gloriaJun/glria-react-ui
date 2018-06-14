@@ -1,6 +1,6 @@
-import './assets/styles/base.scss'
+import '../assets/styles/base.scss';
 
 /*
   components
  */
-export {default as Input} from './Input';
+export Input from './Input';
