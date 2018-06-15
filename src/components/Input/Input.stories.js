@@ -23,7 +23,15 @@ storiesOf('Input', module)
       />
     </div>
   ))
-  .add('disabled', () => <Input disabled />)
+  .add('disabled', () => (
+    <div>
+      <Input
+        type="text"
+        label="Name"
+        disabled
+      />
+    </div>
+  ))
   .add('validation', () => (
     <div>
       <Input

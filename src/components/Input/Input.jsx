@@ -11,6 +11,7 @@ const propTypes = {
   label: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -19,6 +20,7 @@ const defaultProps = {
   label: '',
   value: '',
   placeholder: '',
+  disabled: false,
 };
 
 export default class Input extends React.Component {
@@ -48,6 +50,7 @@ export default class Input extends React.Component {
       type,
       label,
       placeholder,
+      disabled,
     } = this.props;
     const {
       value,
@@ -61,6 +64,7 @@ export default class Input extends React.Component {
           type={type}
           value={value}
           placeholder={placeholder}
+          disabled={disabled}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           onChange={this.handleChange}
