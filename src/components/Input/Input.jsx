@@ -6,20 +6,26 @@ import styles from './Input.scss';
 const cx = classNames.bind(styles);
 
 const propTypes = {
+  id: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  placeholder: PropTypes.string,
 };
 
 const defaultProps = {
+  id: '',
   type: 'text',
   label: '',
+  value: '',
+  placeholder: '',
 };
 
 export default class Input extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: props.value,
       focus: false,
     };
   }
@@ -38,8 +44,10 @@ export default class Input extends React.Component {
 
   render() {
     const {
+      id,
       type,
       label,
+      placeholder,
     } = this.props;
     const {
       value,
@@ -49,16 +57,18 @@ export default class Input extends React.Component {
     return (
       <div className="gl-input">
         <input
+          id={id}
           type={type}
           value={value}
+          placeholder={placeholder}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           onChange={this.handleChange}
         />
         <label
-          htmlFor="{}"
+          htmlFor={id}
           className={cx({
-            active: (value === '' && focus) || value !== '',
+            active: (value === '' && focus) || value !== '' || placeholder !== '',
           })}
         >{label}
         </label>

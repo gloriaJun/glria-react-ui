@@ -6,10 +6,29 @@ import Input from './index';
 
 storiesOf('Input', module)
   .add('default', () => (
-    <Input
-      type="text"
-      label="Name"
-    />
+    <div>
+      <Input
+        type="text"
+        label="Name"
+      />
+      <Input
+        type="text"
+        label="Name"
+        value="Julia"
+      />
+      <Input
+        type="text"
+        label="Name"
+        placeholder="Input Name"
+      />
+    </div>
   ))
   .add('disabled', () => <Input disabled />)
-  .add('validation', () => <Input />);
+  .add('validation', () => (
+    <div>
+      <Input
+        type="text"
+        label="Name"
+      />
+    </div>
+  ));
