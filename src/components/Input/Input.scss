@@ -1,5 +1,8 @@
 @import '~materialize-css/sass/materialize.scss';
 
 .gl-input {
+  label {
+    transform: translateY(-14px) scale(0.8);
+  }
   @extend .input-field;
 }

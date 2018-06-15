@@ -28,6 +28,7 @@ storiesOf('Input', module)
       <Input
         type="text"
         label="Name"
+        placeholder="disabled"
         disabled
       />
     </div>

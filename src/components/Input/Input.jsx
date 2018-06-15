@@ -28,16 +28,7 @@ export default class Input extends React.Component {
     super(props);
     this.state = {
       value: props.value,
-      focus: false,
     };
-  }
-
-  handleFocus = () => {
-    this.setState({ focus: true });
-  }
-
-  handleBlur = () => {
-    this.setState({ focus: false });
   }
 
   handleChange = (e) => {
@@ -54,7 +45,6 @@ export default class Input extends React.Component {
     } = this.props;
     const {
       value,
-      focus,
     } = this.state;
 
     return (
@@ -71,9 +61,6 @@ export default class Input extends React.Component {
         />
         <label
           htmlFor={id}
-          className={cx({
-            active: (value === '' && focus) || value !== '' || placeholder !== '',
-          })}
         >{label}
         </label>
       </div>
