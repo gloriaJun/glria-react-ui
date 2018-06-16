@@ -15,11 +15,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  id: '',
   type: 'text',
-  label: '',
-  value: '',
-  placeholder: '',
   disabled: false,
 };
 
