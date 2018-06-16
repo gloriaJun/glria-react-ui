@@ -14,7 +14,8 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
-    "jsx-a11y/label-has-for": "off"
+    "jsx-a11y/label-has-for": "off",
+    "react/require-default-props": 0
   },
   "settings": {
     "propWrapperFunctions": ["forbidExtraProps", "exact", "Object.freeze"]
