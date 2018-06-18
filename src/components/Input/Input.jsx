@@ -12,6 +12,7 @@ const propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
+  icon: PropTypes.string,
 };
 
 const defaultProps = {
@@ -38,13 +39,18 @@ export default class Input extends React.Component {
       label,
       placeholder,
       disabled,
+      icon,
     } = this.props;
     const {
       value,
     } = this.state;
 
+    const iconEl = icon ? <i className="material-icons prefix">{icon}</i> : '';
+    const labelEl = label ? <label htmlFor={id}>{label}</label> : '';
+
     return (
       <div className="gl-input">
+        { iconEl }
         <input
           id={id}
           type={type}
@@ -55,10 +61,7 @@ export default class Input extends React.Component {
           onBlur={this.handleBlur}
           onChange={this.handleChange}
         />
-        <label
-          htmlFor={id}
-        >{label}
-        </label>
+        { labelEl }
       </div>
     );
   }

@@ -33,6 +33,15 @@ storiesOf('Input', module)
       />
     </div>
   ))
+  .add('icon', () => (
+    <div>
+      <Input
+        type="text"
+        placeholder="Name"
+        icon="account_circle"
+      />
+    </div>
+  ))
   .add('validation', () => (
     <div>
       <Input
