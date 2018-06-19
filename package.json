@@ -2,6 +2,7 @@
   "name": "glria-ui",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://gloriajun.github.io/glria-react-ui/",
   "dependencies": {
     "@storybook/react": "^3.4.7",
     "classnames": "^2.2.6",
@@ -19,7 +20,9 @@
     "lint": "eslint .",
     "lintfix": "exlint . --fix",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "predeploy": "yarn run build-storybook",
+    "deploy": "gh-pages -d storybook-static"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.7",
@@ -35,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.9.1",
+    "gh-pages": "^1.2.0",
     "include-media": "^1.4.9",
     "node-sass": "^4.9.0",
     "open-color": "^1.6.3",
