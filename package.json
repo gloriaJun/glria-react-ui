@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://gloriajun.github.io/glria-react-ui/",
   "dependencies": {
+    "@storybook/addon-actions": "^3.4.7",
+    "@storybook/addon-knobs": "^3.4.7",
     "@storybook/react": "^3.4.7",
     "classnames": "^2.2.6",
     "material-design-icons": "^3.0.1",
@@ -25,9 +27,7 @@
     "deploy": "gh-pages -d storybook-static"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.7",
     "@storybook/addon-info": "^3.4.7",
-    "@storybook/addon-knobs": "^3.4.7",
     "@storybook/addon-links": "^3.4.7",
     "@storybook/addons": "^3.4.7",
     "babel-core": "^6.26.3",
