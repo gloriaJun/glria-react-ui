@@ -13,6 +13,7 @@ const propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   icon: PropTypes.string,
+  helperText: PropTypes.string,
   onChange: PropTypes.func,
 };
 
@@ -44,6 +45,7 @@ export default class TextInput extends React.Component {
       placeholder,
       disabled,
       icon,
+      helperText,
     } = this.props;
     const {
       value,
@@ -51,7 +53,9 @@ export default class TextInput extends React.Component {
 
     return (
       <div className="gr-text-input">
-        { icon ? <i className="material-icons prefix">{icon}</i> : null }
+        { icon && (
+          <i className="material-icons prefix">{icon}</i>
+        )}
         <input
           type={type}
           value={value}
@@ -61,13 +65,14 @@ export default class TextInput extends React.Component {
           onBlur={this.handleBlur}
           onChange={this.handleChange}
         />
-        { label ? <label>{label}</label> : null }
-        <span
-          className="helper-text"
-          data-error="wrong"
-          data-success="right"
-        >Helper Text
-        </span>
+        { label && (
+          <label>{label}</label>
+        )}
+        { helperText && (
+          <span className="helper-text">
+            {helperText}
+          </span>
+        )}
       </div>
     );
   }
