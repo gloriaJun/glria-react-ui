@@ -1,8 +1,44 @@
-@import '~materialize-css/sass/materialize.scss';
+//@import '~materialize-css/sass/materialize.scss';
+@import '../../assets/styles/utils.scss';
+
+$focusColor: $oc-teal-6;
 
 .gr-text-input {
+  position: relative;
+
   label {
-    transform: translateY(-14px) scale(0.8);
+    width: 100%;
+    padding-left: .1rem;
+    font-size: .8rem;
+    color: $oc-gray-7;
   }
-  @extend .input-field;
+  input {
+    padding: 9px;
+    border-radius: 5px;
+    border: 1px solid $oc-gray-4;
+    color: $oc-gray-8;
+    width: 100%;
+    &:disabled {
+      opacity: .7;
+    }
+  }
+
+  .helper-text {
+    color: $oc-gray-6;
+    font-size: .8rem;
+    display: block;
+    padding-top: .3rem;
+    padding-left: .2rem;
+  }
+
+  /** focus **/
+  &.input-focus {
+    label {
+      color: $focusColor;
+    }
+    input {
+      outline: none;
+      border-color: $focusColor;
+    }
+  }
 }

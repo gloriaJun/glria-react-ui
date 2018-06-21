@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import classNames from 'classnames/bind';
-// import styles from './TextInput.scss';
-import './TextInput.scss';
+import classNames from 'classnames/bind';
+import styles from './TextInput.scss';
 
-// const cx = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 const propTypes = {
   type: PropTypes.string,
@@ -26,6 +25,7 @@ export default class TextInput extends React.Component {
     super(props);
     this.state = {
       value: props.value,
+      isFocus: false,
     };
   }
 
@@ -36,6 +36,14 @@ export default class TextInput extends React.Component {
     this.setState({ value: inputValue });
 
     if (onChange) onChange(inputValue, event);
+  }
+
+  handleFocus = () => {
+    this.setState({ isFocus: true });
+  }
+
+  handleBlur = () => {
+    this.setState({ isFocus: false });
   }
 
   render() {
@@ -49,10 +57,17 @@ export default class TextInput extends React.Component {
     } = this.props;
     const {
       value,
+      isFocus,
     } = this.state;
 
     return (
-      <div className="gr-text-input">
+      <div className={cx('gr-text-input', {
+        'input-focus': isFocus,
+      })}
+      >
+        { label && (
+          <label>{label}</label>
+        )}
         { icon && (
           <i className="material-icons prefix">{icon}</i>
         )}
@@ -65,9 +80,6 @@ export default class TextInput extends React.Component {
           onBlur={this.handleBlur}
           onChange={this.handleChange}
         />
-        { label && (
-          <label>{label}</label>
-        )}
         { helperText && (
           <span className="helper-text">
             {helperText}

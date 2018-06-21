@@ -27,12 +27,12 @@ storiesOf('TextInput', module)
 
     return (
       <div>
-        <h6 className="story-title">default</h6>
+        <h2 className="story-title">default</h2>
         <GrTextInput
           placeholder={disabled ? 'disabled' : 'Input Name'}
           disabled={disabled}
         />
-        <h6 className="story-title">with value</h6>
+        <h2 className="story-title">with value</h2>
         <GrTextInput
           label="Name"
           value="This is Value"
