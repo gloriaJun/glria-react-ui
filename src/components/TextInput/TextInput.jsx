@@ -60,26 +60,38 @@ export default class TextInput extends React.Component {
       isFocus,
     } = this.state;
 
+    // const iconEl = icon && (
+    //   <span className="icon">
+    //     <i className="material-icons">{icon}</i>
+    //   </span>
+    // );
+    const inputEl = (
+      <input
+        type={type}
+        value={value}
+        placeholder={placeholder}
+        disabled={disabled}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+      />
+    );
+
     return (
       <div className={cx('gr-text-input', {
-        'input-focus': isFocus,
+        focus: isFocus,
+        'has-icon': icon && icon !== '',
       })}
       >
         { label && (
           <label>{label}</label>
         )}
+        {inputEl}
         { icon && (
-          <i className="material-icons prefix">{icon}</i>
+          <span className="icon">
+            <i className="material-icons">{icon}</i>
+          </span>
         )}
-        <input
-          type={type}
-          value={value}
-          placeholder={placeholder}
-          disabled={disabled}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-        />
         { helperText && (
           <span className="helper-text">
             {helperText}

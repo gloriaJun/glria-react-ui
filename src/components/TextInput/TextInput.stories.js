@@ -27,12 +27,10 @@ storiesOf('TextInput', module)
 
     return (
       <div>
-        <h2 className="story-title">default</h2>
         <GrTextInput
           placeholder={disabled ? 'disabled' : 'Input Name'}
           disabled={disabled}
         />
-        <h2 className="story-title">with value</h2>
         <GrTextInput
           label="Name"
           value="This is Value"
@@ -42,10 +40,32 @@ storiesOf('TextInput', module)
     );
   })
   .add('helper text', () => (
-    <GrTextInput helperText="This is helper text" />
+    <div>
+      <GrTextInput helperText="This is helper text" />
+      <GrTextInput
+        label="Username"
+        icon="perm_identity"
+        helperText="This is helper text"
+      />
+      <GrTextInput
+        label="Username"
+        helperText="This is helper text"
+      />
+    </div>
   ))
   .add('icon', () => (
-    <GrTextInput icon="account_circle" />
+    <div>
+      <GrTextInput
+        label="Username"
+        icon="perm_identity"
+      />
+      <GrTextInput icon="account_circle" />
+      <GrTextInput
+        icon="mail_outline"
+        value="test@abc.com"
+        disabled
+      />
+    </div>
   ))
   .add('validation', () => (
     <div>

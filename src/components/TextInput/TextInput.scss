@@ -1,29 +1,45 @@
 //@import '~materialize-css/sass/materialize.scss';
 @import '../../assets/styles/utils.scss';
 
-$focusColor: $oc-teal-6;
+$focusColor: $oc-blue-5;
+
+@mixin boxBorder ($radius: 3px) {
+  border-radius: $radius;
+  border: 1px solid $oc-gray-4;
+}
 
 .gr-text-input {
   position: relative;
+  margin-top: 1.2rem;
+  margin-bottom: 2.7rem;
 
   label {
+    display: block;
+    padding-bottom: .2rem;
+    padding-left: .2rem;
     width: 100%;
-    padding-left: .1rem;
     font-size: .8rem;
     color: $oc-gray-7;
+    position: absolute;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   input {
-    padding: 9px;
-    border-radius: 5px;
-    border: 1px solid $oc-gray-4;
-    color: $oc-gray-8;
+    padding: .5rem .7rem;
     width: 100%;
-    &:disabled {
-      opacity: .7;
-    }
+    @include boxBorder;
+    box-shadow: inset 0 1px 2px hsla(0,0%,4%,.1);
+    color: $oc-gray-8;
+    font-size: .9rem;
+    position: relative;
+    -webkit-transition: all .25s ease;
+    transition: all .25s ease;
+    &:disabled { opacity: .7; }
   }
 
   .helper-text {
+    position: absolute;
     color: $oc-gray-6;
     font-size: .8rem;
     display: block;
@@ -31,13 +47,28 @@ $focusColor: $oc-teal-6;
     padding-left: .2rem;
   }
 
+  /** with icon **/
+  &.has-icon {
+    input { padding-left: 2.3rem; }
+    span.icon {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      color: $oc-gray-6;
+      padding: 0 .2rem;
+    }
+  }
+
   /** focus **/
-  &.input-focus {
-    label {
+  &.focus {
+    label, span.icon {
       color: $focusColor;
     }
     input {
-      outline: none;
       border-color: $focusColor;
     }
   }
