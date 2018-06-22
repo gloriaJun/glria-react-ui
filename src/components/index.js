@@ -1,4 +1,4 @@
-import '../assets/styles/utils.scss';
+import '../assets/styles/base.scss';
 
 /*
   components
