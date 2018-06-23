@@ -5,7 +5,7 @@ import { boolean } from '@storybook/addon-knobs';
 
 import GrTextInput from '../index';
 
-storiesOf('TextInput', module)
+storiesOf('Form:TextInput', module)
   .add('default', () => (
     <div>
       <GrTextInput
@@ -35,6 +35,23 @@ storiesOf('TextInput', module)
           label="Name"
           value="This is Value"
           disabled={disabled}
+        />
+      </div>
+    );
+  })
+  .add('readonly', () => {
+    const readonly = boolean('readonly', true);
+
+    return (
+      <div>
+        <GrTextInput
+          placeholder={readonly ? 'readonly' : 'Input Name'}
+          readonly={readonly}
+        />
+        <GrTextInput
+          label="Label"
+          value={readonly ? 'readonly' : 'Input Name'}
+          readonly={readonly}
         />
       </div>
     );

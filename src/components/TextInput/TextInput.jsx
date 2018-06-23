@@ -11,6 +11,7 @@ const propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
+  readonly: PropTypes.bool,
   icon: PropTypes.string,
   helperText: PropTypes.string,
   onChange: PropTypes.func,
@@ -52,6 +53,7 @@ export default class TextInput extends React.Component {
       label,
       placeholder,
       disabled,
+      readonly,
       icon,
       helperText,
     } = this.props;
@@ -59,23 +61,6 @@ export default class TextInput extends React.Component {
       value,
       isFocus,
     } = this.state;
-
-    // const iconEl = icon && (
-    //   <span className="icon">
-    //     <i className="material-icons">{icon}</i>
-    //   </span>
-    // );
-    const inputEl = (
-      <input
-        type={type}
-        value={value}
-        placeholder={placeholder}
-        disabled={disabled}
-        onFocus={this.handleFocus}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange}
-      />
-    );
 
     return (
       <div className={cx('gr-text-input', {
@@ -86,7 +71,16 @@ export default class TextInput extends React.Component {
         { label && (
           <label>{label}</label>
         )}
-        {inputEl}
+        <input
+          type={type}
+          value={value}
+          placeholder={placeholder}
+          disabled={disabled}
+          readOnly={readonly}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          onChange={this.handleChange}
+        />
         { icon && (
           <span className="icon">
             <i className="material-icons">{icon}</i>
