@@ -14,6 +14,7 @@ const propTypes = {
   readonly: PropTypes.bool,
   icon: PropTypes.string,
   helperText: PropTypes.string,
+  required: PropTypes.bool,
   onChange: PropTypes.func,
 };
 
@@ -27,15 +28,14 @@ export default class TextInput extends React.Component {
     this.state = {
       value: props.value,
       isFocus: false,
+      isError: false,
     };
   }
 
   handleChange = (event) => {
     const { onChange } = this.props;
     const inputValue = event.target.value;
-
     this.setState({ value: inputValue });
-
     if (onChange) onChange(inputValue, event);
   }
 
@@ -43,8 +43,15 @@ export default class TextInput extends React.Component {
     this.setState({ isFocus: true });
   }
 
-  handleBlur = () => {
+  handleBlur = (event) => {
+    const {
+      required,
+    } = this.props;
     this.setState({ isFocus: false });
+
+    if (required) {
+      this.setState({ isError: event.target.value === '' });
+    }
   }
 
   render() {
@@ -60,16 +67,20 @@ export default class TextInput extends React.Component {
     const {
       value,
       isFocus,
+      isError,
     } = this.state;
 
     return (
       <div className={cx('gr-text-input', {
         focus: isFocus,
+        error: isError,
         'has-icon': icon && icon !== '',
       })}
       >
         { label && (
-          <label>{label}</label>
+          <label>
+            {label}
+          </label>
         )}
         <input
           type={type}

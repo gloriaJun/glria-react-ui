@@ -2,6 +2,7 @@
 @import '../../assets/styles/utils.scss';
 
 $focusColor: $oc-blue-5;
+$errorColor: $oc-red-7;
 
 @mixin boxBorder ($radius: 3px) {
   border-radius: $radius;
@@ -71,6 +72,16 @@ $focusColor: $oc-blue-5;
     }
     input {
       border-color: $focusColor;
+    }
+  }
+
+  /** error **/
+  &.error {
+    label, span.icon {
+      color: $errorColor;
+    }
+    input {
+      border: 2px solid $errorColor;
     }
   }
 }

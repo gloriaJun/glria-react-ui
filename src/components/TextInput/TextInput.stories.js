@@ -56,6 +56,15 @@ storiesOf('Form:TextInput', module)
       </div>
     );
   })
+  .add('reaquired', () => (
+    <div>
+      <GrTextInput
+        label="Label"
+        placeholder="Input Text"
+        required
+      />
+    </div>
+  ))
   .add('helper text', () => (
     <div>
       <GrTextInput helperText="This is helper text" />
