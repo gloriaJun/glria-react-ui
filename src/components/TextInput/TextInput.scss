@@ -8,11 +8,26 @@ $errorColor: $oc-red-7;
   border-radius: $radius;
   border: 1px solid $oc-gray-4;
 }
+@mixin changeColor ($color, $borderSize: 1px) {
+  label, span.icon {
+    color: $color;
+  }
+  input {
+    border: $borderSize solid $color;
+  }
+}
 
 .gr-text-input {
   position: relative;
   margin-top: 1.2rem;
   margin-bottom: 2.7rem;
+
+  &.is-required label:after {
+    content: '*';
+    font-weight: normal;
+    color: $oc-red-6;
+    margin-left: .2rem;
+  }
 
   label {
     display: block;
@@ -67,21 +82,15 @@ $errorColor: $oc-red-7;
 
   /** focus **/
   &.focus {
-    label, span.icon {
-      color: $focusColor;
-    }
-    input {
-      border-color: $focusColor;
-    }
+    @include changeColor($focusColor);
   }
 
   /** error **/
   &.error {
-    label, span.icon {
-      color: $errorColor;
-    }
+    @include changeColor($errorColor, 2px);
     input {
-      border: 2px solid $errorColor;
+      background-color: $oc-red-1;
+      color: $oc-red-9
     }
   }
 }

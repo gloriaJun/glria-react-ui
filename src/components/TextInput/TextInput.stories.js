@@ -96,7 +96,8 @@ storiesOf('Form:TextInput', module)
   .add('validation', () => (
     <div>
       <GrTextInput
-        label="Name"
+        type="url"
+        label="Url"
       />
     </div>
   ));

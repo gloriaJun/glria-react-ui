@@ -61,6 +61,7 @@ export default class TextInput extends React.Component {
       placeholder,
       disabled,
       readonly,
+      required,
       icon,
       helperText,
     } = this.props;
@@ -73,6 +74,7 @@ export default class TextInput extends React.Component {
     return (
       <div className={cx('gr-text-input', {
         focus: isFocus,
+        'is-required': required,
         error: isError,
         'has-icon': icon && icon !== '',
       })}
