@@ -11,7 +11,12 @@ setDefaults()
 import './story.scss'
 
 function loadStories() {
-  const req = require.context('../src', true, /\.stories\.js$/);
+  // story of example
+  let req = require.context('../example', true, /\.stories\.js$/);
+  req.keys().forEach(filename => req(filename));
+
+  // story of component
+  req = require.context('../src', true, /\.stories\.js$/);
   req.keys().forEach(filename => req(filename));
 }
 
