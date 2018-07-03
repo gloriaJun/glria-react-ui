@@ -8,6 +8,7 @@ const cx = classNames.bind(styles);
 const propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
+  name: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
@@ -26,7 +27,6 @@ export default class TextInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value,
       isFocus: false,
       isError: false,
     };
@@ -34,9 +34,7 @@ export default class TextInput extends React.Component {
 
   handleChange = (event) => {
     const { onChange } = this.props;
-    const inputValue = event.target.value;
-    this.setState({ value: inputValue });
-    if (onChange) onChange(event, inputValue);
+    if (onChange) onChange(event, event.target.value);
   }
 
   handleFocus = () => {
@@ -58,6 +56,8 @@ export default class TextInput extends React.Component {
     const {
       type,
       label,
+      name,
+      value,
       placeholder,
       disabled,
       readonly,
@@ -66,7 +66,6 @@ export default class TextInput extends React.Component {
       helperText,
     } = this.props;
     const {
-      value,
       isFocus,
       isError,
     } = this.state;
@@ -86,6 +85,7 @@ export default class TextInput extends React.Component {
         )}
         <input
           type={type}
+          name={name}
           value={value}
           placeholder={placeholder}
           disabled={disabled}

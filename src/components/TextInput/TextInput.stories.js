@@ -92,12 +92,4 @@ storiesOf('Form:TextInput', module)
         disabled
       />
     </div>
-  ))
-  .add('validation', () => (
-    <div>
-      <GrTextInput
-        type="url"
-        label="Url"
-      />
-    </div>
   ));

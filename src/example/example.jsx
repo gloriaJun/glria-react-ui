@@ -5,27 +5,48 @@ export default class Example extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      name: '',
+      email: '',
     };
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      name: '',
+      email: '',
+    });
+  }
+
   handleChange = (event, inputValue) => {
-    this.setState({ value: inputValue });
+    this.setState({ [event.target.name]: inputValue });
   }
 
   render() {
     const {
-      value,
+      name,
+      email,
     } = this.state;
 
     return (
       <div>
-        <GrTextInput
-          label="Text"
-          value={value}
-          onChange={this.handleChange}
-        />
-        <p>Input Value : {value}</p>
+        <form onSubmit={this.handleSubmit}>
+          <GrTextInput
+            label="Name"
+            name="name"
+            value={name}
+            onChange={this.handleChange}
+          />
+          <GrTextInput
+            label="E-mail"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+          />
+          <button>Submit</button>
+        </form>
+        <p>Input Data</p>
+        <div>{ JSON.stringify(this.state) }</div>
       </div>
     );
   }
