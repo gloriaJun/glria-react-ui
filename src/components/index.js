@@ -1,6 +1,8 @@
-import './assets/styles/base.scss'
+import '../assets/styles/base.scss';
 
 /*
   components
  */
-export {default as Input} from './Input';
+import GrTextInput from './TextInput';
+
+export default GrTextInput;
