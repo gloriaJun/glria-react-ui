@@ -36,7 +36,7 @@ export default class TextInput extends React.Component {
     const { onChange } = this.props;
     const inputValue = event.target.value;
     this.setState({ value: inputValue });
-    if (onChange) onChange(inputValue, event);
+    if (onChange) onChange(event, inputValue);
   }
 
   handleFocus = () => {
