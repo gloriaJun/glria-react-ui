@@ -1,5 +1,5 @@
 import React from 'react';
-import GrTextInput from '../src/index';
+import { GrTextInput } from '../src/index';
 
 export default class Example extends React.Component {
   constructor(props) {
