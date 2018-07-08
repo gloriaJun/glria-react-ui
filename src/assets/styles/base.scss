@@ -2,7 +2,18 @@
 //@import '~materialize-css/dist/css/materialize.css';
 
 * {
+  margin: 0;
+  padding: 0;
+  border: 0;
   outline: none;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
 }
